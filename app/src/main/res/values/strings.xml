@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FindMe</string>
+
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="facebook_app_id">1898304223640111</string>
+    <string name="fb_login_protocol_scheme">fb1898304223640111</string>
+</resources>
