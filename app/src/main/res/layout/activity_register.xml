@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RegisterAct"
+        tools:context=".activity.RegisterAct"
         android:background="@color/register_bk_color"
         android:focusableInTouchMode="true"
         android:gravity="center"
@@ -38,7 +38,7 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentRight="true"/>
             </RelativeLayout>
-            <android.support.v7.widget.CardView
+            <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
@@ -50,55 +50,55 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:orientation="vertical">
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/textInputName"
                             style="@style/parent"
                             android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                                android:id="@+id/editTextName"
+                                android:id="@+id/edt_text_name"
                                 style="@style/modifiedEditText"
                                 android:inputType="textPersonName"
                                 android:maxLines="1"
                                 android:hint="Name"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/textInputEmail"
                             style="@style/parent"
                             android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                                android:id="@+id/editTextEmail"
+                                android:id="@+id/edt_text_email"
                                 style="@style/modifiedEditText"
                                 android:inputType="textEmailAddress"
                                 android:maxLines="1"
                                 android:hint="@string/login_email_hint"/>
-                    </android.support.design.widget.TextInputLayout>
-                    <android.support.design.widget.TextInputLayout
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/textInputMobile"
                             style="@style/parent"
                             android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                                android:id="@+id/editTextMobile"
+                                android:id="@+id/edt_mobile_number"
                                 style="@style/modifiedEditText"
                                 android:inputType="phone"
                                 android:maxLines="1"
                                 android:hint="Mobile Number"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                    <android.support.design.widget.TextInputLayout
+                    <com.google.android.material.textfield.TextInputLayout
                             android:id="@+id/textInputPassword"
                             style="@style/parent"
                             android:layout_marginTop="@dimen/loginViewsMargin">
                         <EditText
-                                android:id="@+id/editTextPassword"
+                                android:id="@+id/edt_password"
                                 style="@style/modifiedEditText"
                                 android:hint="@string/login_password_hint"
                                 android:maxLines="1"
                                 android:inputType="textPassword"/>
-                    </android.support.design.widget.TextInputLayout>
+                    </com.google.android.material.textfield.TextInputLayout>
 
                     <br.com.simplepass.loading_button_lib.customViews.CircularProgressButton
-                            android:id="@+id/cirRegisterButton"
+                            android:id="@+id/btn_register"
                             style="@style/loginButton"
                             app:spinning_bar_width="4dp"
                             app:spinning_bar_color="#FFF"
@@ -119,7 +119,7 @@
                             android:onClick="onLoginClick"/>
 
                 </LinearLayout>
-            </android.support.v7.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
 
             <LinearLayout

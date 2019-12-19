@@ -1,4 +1,4 @@
-package ayaan.tarikul.kotlinsampleapp
+package ayaan.tarikul.kotlinsampleapp.activity
 
 import android.os.Build
 import android.os.Bundle
@@ -8,7 +8,6 @@ import android.content.Intent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import ayaan.tarikul.kotlinsampleapp.activity.MainAct
 import ayaan.tarikul.kotlinsampleapp.utils.BusyDialog
 import com.facebook.FacebookCallback
 import com.facebook.FacebookException
@@ -17,12 +16,10 @@ import com.facebook.login.LoginResult
 import com.facebook.CallbackManager
 import java.util.*
 
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
-import android.content.pm.PackageManager
-import android.util.Base64
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import ayaan.tarikul.kotlinsampleapp.R
 
 
 class LoginAct : AppCompatActivity() {
@@ -46,6 +43,7 @@ class LoginAct : AppCompatActivity() {
         var edtPassword = findViewById<View>(R.id.edt_password) as EditText
         var btnLogin = findViewById<View>(R.id.btn_login) as Button
         var imgvFacebook = findViewById<View>(R.id.imgv_facebook) as ImageView
+        var txvResigter = findViewById<View>(R.id.txv_register) as TextView
         // Creating CallbackManager
         callbackManager = CallbackManager.Factory.create();
 
@@ -53,6 +51,9 @@ class LoginAct : AppCompatActivity() {
         btnLogin.setOnClickListener() {
             mBusyDialog!!.showDialog(false, "Please wait....loading")
             mBusyDialog!!.show()
+
+
+
         }
 
 
@@ -77,6 +78,12 @@ class LoginAct : AppCompatActivity() {
 
                     }
                 })
+        }
+
+
+
+        txvResigter.setOnClickListener(){
+            startActivity(Intent(applicationContext, RegisterAct::class.java))
         }
 
 

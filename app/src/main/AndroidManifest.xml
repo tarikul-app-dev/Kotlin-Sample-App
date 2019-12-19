@@ -14,9 +14,9 @@
             android:theme="@style/AppTheme.NoActionBar">
         <activity android:name="ayaan.tarikul.kotlinsampleapp.activity.MainAct">
         </activity>
-        <activity android:name="ayaan.tarikul.kotlinsampleapp.RegisterAct">
+        <activity android:name="ayaan.tarikul.kotlinsampleapp.activity.RegisterAct">
         </activity>
-        <activity android:name="ayaan.tarikul.kotlinsampleapp.LoginAct">
+        <activity android:name="ayaan.tarikul.kotlinsampleapp.activity.LoginAct">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
