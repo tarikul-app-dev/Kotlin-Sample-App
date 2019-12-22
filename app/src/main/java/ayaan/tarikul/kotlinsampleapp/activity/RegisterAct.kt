@@ -10,6 +10,7 @@ import android.os.Build
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import ayaan.tarikul.kotlinsampleapp.R
 import ayaan.tarikul.kotlinsampleapp.utils.PreferenceHelper
 import ayaan.tarikul.kotlinsampleapp.utils.UIContent
@@ -38,7 +39,7 @@ class RegisterAct : AppCompatActivity() {
         uiContent = UIContent(this)
 
         edtName = findViewById<View>(R.id.edt_text_name) as? EditText
-        edtEmail = findViewById<View>(R.id.edt_email) as? EditText
+        edtEmail = findViewById<View>(R.id.edt_text_email) as? EditText
         edtMobile = findViewById<View>(R.id.edt_mobile_number) as? EditText
         edtPassword = findViewById<View>(R.id.edt_password) as? EditText
         btnReg = findViewById<View>(R.id.btn_register) as? CircularProgressButton
@@ -49,14 +50,23 @@ class RegisterAct : AppCompatActivity() {
             var mobileNumber :String = edtMobile?.text.toString()
             var password :String = edtPassword?.text.toString()
 
+            if(uiContent!!.isValidate(userEmail)){
+                if(uiContent!!.isValid(mobileNumber)){
+                    preferenceHelper?.setValueToPreference("user_name",userName)
+                    preferenceHelper?.setValueToPreference("email",userEmail)
+                    preferenceHelper?.setValueToPreference("mobile_number",mobileNumber)
+                    preferenceHelper?.setValueToPreference("password",password)
+
+                    showExitDialog("Warning","Data Save Success")
+                }else{
+                    uiContent!!.showExitDialog("Warning","Invalid Mobile Number")
+                }
+
+            }else{
+                uiContent!!.showExitDialog("Warning","Invalid Email Address")
+            }
 
 
-            preferenceHelper?.setValueToPreference("user_name",userName)
-            preferenceHelper?.setValueToPreference("email",userEmail)
-            preferenceHelper?.setValueToPreference("mobile_number",mobileNumber)
-            preferenceHelper?.setValueToPreference("password",password)
-
-            showExitDialog("Warning","Data Save Success")
 
 
         }
@@ -99,8 +109,8 @@ class RegisterAct : AppCompatActivity() {
             dialog.dismiss()
             // activity.finish();
             clearText()
-
-
+            startActivity(Intent(applicationContext, LoginAct::class.java))
+            ActivityCompat.finishAffinity(this)
         }
         //        aBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
         //            @Override

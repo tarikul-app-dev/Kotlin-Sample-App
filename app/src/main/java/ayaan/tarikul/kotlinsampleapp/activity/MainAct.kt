@@ -1,20 +1,25 @@
 package ayaan.tarikul.kotlinsampleapp.activity
 
 
+import android.content.Intent
 import android.os.Bundle
 
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
 import ayaan.tarikul.kotlinsampleapp.R
+import ayaan.tarikul.kotlinsampleapp.utils.PreferenceHelper
 import com.google.android.material.navigation.NavigationView
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
+    var preferenceHelper : PreferenceHelper? = null;
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +31,7 @@ class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
 
    fun initViews(){
+       preferenceHelper = PreferenceHelper(this)
        fab.setOnClickListener { view ->
            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                .setAction("Action", null).show()
@@ -61,9 +67,17 @@ class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         when (item.itemId) {
-            R.id.action_settings -> return true
+            R.id.sign_out ->{
+                doLogout()
+                return true
+            }
+
+
+
             else -> return super.onOptionsItemSelected(item)
         }
+
+
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -91,5 +105,14 @@ class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+
+    fun doLogout(){
+        val intent = Intent(this, LoginAct::class.java)
+        startActivity(intent)
+        ActivityCompat.finishAffinity(this)
+        preferenceHelper?.setValueToPreference("email","")
+        preferenceHelper?.setValueToPreference("password","")
     }
 }

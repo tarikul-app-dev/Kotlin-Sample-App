@@ -17,14 +17,21 @@ import com.facebook.CallbackManager
 import java.util.*
 
 import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
 import ayaan.tarikul.kotlinsampleapp.R
+import ayaan.tarikul.kotlinsampleapp.utils.PreferenceHelper
+import ayaan.tarikul.kotlinsampleapp.utils.UIContent
 
 
 class LoginAct : AppCompatActivity() {
      var mBusyDialog:BusyDialog?=null
     private var callbackManager: CallbackManager? = null
+    var localStorage : PreferenceHelper? = null
+    var uiContent : UIContent ? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,20 +44,35 @@ class LoginAct : AppCompatActivity() {
     }
 
     fun initViews() {
-
+        localStorage = PreferenceHelper(this)
         mBusyDialog = BusyDialog(this)
+        uiContent = UIContent(this)
+
         var edtEmail = findViewById<View>(R.id.edt_email) as EditText
         var edtPassword = findViewById<View>(R.id.edt_password) as EditText
         var btnLogin = findViewById<View>(R.id.btn_login) as Button
         var imgvFacebook = findViewById<View>(R.id.imgv_facebook) as ImageView
         var txvResigter = findViewById<View>(R.id.txv_register) as TextView
+
+        var saveEmail = localStorage!!.getValueFromPreference("email")
+        var savePassword = localStorage!!.getValueFromPreference("password")
         // Creating CallbackManager
         callbackManager = CallbackManager.Factory.create();
 
 
         btnLogin.setOnClickListener() {
-            mBusyDialog!!.showDialog(false, "Please wait....loading")
-            mBusyDialog!!.show()
+//            mBusyDialog!!.showDialog(false, "Please wait....loading")
+//            mBusyDialog!!.show()
+            var userEmail :String = edtEmail?.text.toString()
+            var password :String = edtPassword?.text.toString()
+
+            if(userEmail.equals(saveEmail) && password.equals(savePassword)){
+                startActivity(Intent(applicationContext, MainAct::class.java))
+                ActivityCompat.finishAffinity(this)
+
+            }else{
+                uiContent!!.showExitDialog("Warning","Invalid email or password")
+            }
 
 
 
@@ -95,4 +117,7 @@ class LoginAct : AppCompatActivity() {
 
         callbackManager?.onActivityResult(requestCode, resultCode, data)
     }
+
+
+
 }
