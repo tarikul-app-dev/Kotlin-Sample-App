@@ -114,5 +114,7 @@ class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
         ActivityCompat.finishAffinity(this)
         preferenceHelper?.setValueToPreference("email","")
         preferenceHelper?.setValueToPreference("password","")
+
+        preferenceHelper?.setBooleanValueToPreference("isLogin",false)
     }
 }

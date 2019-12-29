@@ -32,6 +32,7 @@ class LoginAct : AppCompatActivity() {
     private var callbackManager: CallbackManager? = null
     var localStorage : PreferenceHelper? = null
     var uiContent : UIContent ? = null
+    var preferenceHelper : PreferenceHelper? = null;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +48,7 @@ class LoginAct : AppCompatActivity() {
         localStorage = PreferenceHelper(this)
         mBusyDialog = BusyDialog(this)
         uiContent = UIContent(this)
+        preferenceHelper = PreferenceHelper(this)
 
         var edtEmail = findViewById<View>(R.id.edt_email) as EditText
         var edtPassword = findViewById<View>(R.id.edt_password) as EditText
@@ -66,9 +68,21 @@ class LoginAct : AppCompatActivity() {
             var userEmail :String = edtEmail?.text.toString()
             var password :String = edtPassword?.text.toString()
 
+            if (userEmail.trim().equals("") || userEmail == null) {
+                uiContent!!.showExitDialog("Warning","Email not found")
+                return@setOnClickListener
+            }
+
+            if (password.trim ().equals("")  || password == null) {
+                uiContent!!.showExitDialog("Warning","Password not found")
+                //return
+                return@setOnClickListener
+            }
+
             if(userEmail.equals(saveEmail) && password.equals(savePassword)){
                 startActivity(Intent(applicationContext, MainAct::class.java))
                 ActivityCompat.finishAffinity(this)
+                preferenceHelper?.setBooleanValueToPreference("isLogin",true)
 
             }else{
                 uiContent!!.showExitDialog("Warning","Invalid email or password")

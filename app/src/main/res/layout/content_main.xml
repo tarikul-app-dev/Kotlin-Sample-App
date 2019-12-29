@@ -14,8 +14,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="70dp"
     >
     <androidx.gridlayout.widget.GridLayout
             android:id="@+id/mainGrid"
@@ -58,11 +57,12 @@
                         android:layout_height="60dp" />
 
                 <TextView
-                        android:text="Me"
+                        android:text="Recy and CardView"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
@@ -101,6 +101,7 @@
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
                         android:textStyle="bold"
+                        android:layout_gravity="center"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
 
