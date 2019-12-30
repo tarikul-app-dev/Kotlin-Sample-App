@@ -8,8 +8,10 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.core.app.ActivityCompat
 import androidx.core.view.GravityCompat
+import androidx.recyclerview.widget.RecyclerView
 import ayaan.tarikul.kotlinsampleapp.R
 import ayaan.tarikul.kotlinsampleapp.utils.PreferenceHelper
 import com.google.android.material.navigation.NavigationView
@@ -20,6 +22,7 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener  {
     var preferenceHelper : PreferenceHelper? = null;
 
+    lateinit var cdRecy : CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +34,9 @@ class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
 
    fun initViews(){
+       cdRecy = findViewById(R.id.cdview_recy_view)
+
+
        preferenceHelper = PreferenceHelper(this)
        fab.setOnClickListener { view ->
            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -44,6 +50,12 @@ class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
        toggle.syncState()
 
        nav_view.setNavigationItemSelectedListener(this)
+
+       cdRecy.setOnClickListener(){
+           val intent = Intent(this, RecyAndCardviewAct::class.java)
+           startActivity(intent)
+       }
+
    }
 
 

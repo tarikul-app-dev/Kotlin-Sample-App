@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/progres"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+
+    >
+
+    <LinearLayout
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+
+        android:orientation="vertical"
+        >
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.Wave"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            app:SpinKit_Color="@color/colorAccent"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inputsearchenglishhome"
+            android:layout_marginTop="65dp"
+            android:visibility="visible" />
+        <!--<com.github.ybq.android.spinkit.SpinKitView-->
+            <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+            <!--android:id="@+id/spin_kit"-->
+            <!--style="@style/SpinKitView.Large.Wave"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:layout_marginTop="50dp"-->
+            <!--app:SpinKit_Color="@color/color_white" />-->
+    </LinearLayout>
+
+</RelativeLayout>

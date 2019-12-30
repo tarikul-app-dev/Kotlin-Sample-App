@@ -33,14 +33,15 @@
 
         <!-- Column 1 -->
         <androidx.cardview.widget.CardView
+                android:id="@+id/cdview_recy_view"
                 android:layout_width="140dp"
                 android:layout_height="170dp"
-
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 app:cardElevation="8dp"
                 app:cardCornerRadius="8dp"
+                android:clickable="true"
         >
 
             <LinearLayout

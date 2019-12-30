@@ -2,6 +2,7 @@ package ayaan.tarikul.kotlinsampleapp.utils
 
 import android.content.Context
 import android.content.DialogInterface
+import android.net.ConnectivityManager
 import androidx.appcompat.app.AlertDialog
 import ayaan.tarikul.kotlinsampleapp.R
 import com.google.i18n.phonenumbers.NumberParseException
@@ -55,5 +56,13 @@ class UIContent (val mContext:Context){
 
     }
 
+    fun isConnectingToInternet(): Boolean {
+
+        val cm = mContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+
+        val activeNetwork = cm.activeNetworkInfo
+
+        return activeNetwork != null && activeNetwork.isConnectedOrConnecting
+    }
 
 }

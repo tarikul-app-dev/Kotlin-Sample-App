@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+              xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_edt"
+    >
+        <LinearLayout
+                android:id="@+id/lin_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+        >
+            <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="05dp"
+
+
+                    android:singleLine="false"
+                    android:text="Id:"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+            />
+
+            <TextView
+                    android:id="@+id/txv_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_marginLeft="38dp"
+                    android:layout_marginTop="05dp"
+
+
+                    android:singleLine="false"
+                    android:text="5000"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+            />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:id="@+id/lin_node_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/lin_id"
+        >
+
+            <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+
+
+                    android:singleLine="false"
+                    android:text="Node Id:"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+            />
+            <TextView
+                    android:id="@+id/txv_node_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginTop="0dp"
+
+                    android:singleLine="false"
+                    android:text="shdfshvfcjh"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+            />
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/lin_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/lin_node_id"
+        >
+            <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+
+
+                    android:singleLine="false"
+                    android:text="Name:"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+            />
+            <TextView
+                    android:id="@+id/txv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="05dp"
+                    android:layout_marginTop="0dp"
+
+                    android:singleLine="false"
+                    android:text="ahsfgsahj"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+
+            />
+
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/lin_full_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/lin_name"
+        >
+            <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+
+
+                    android:singleLine="false"
+                    android:text="Full Name:"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+            />
+            <TextView
+                    android:id="@+id/txv_full_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="03dp"
+                    android:layout_marginTop="0dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="false"
+                    android:text="Shjsfjh"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+            />
+        </LinearLayout>
+        <LinearLayout
+                android:id="@+id/lin_private"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@+id/lin_full_name"
+        >
+            <TextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="0dp"
+
+
+                    android:singleLine="false"
+                    android:text="Private:"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+            />
+            <TextView
+                    android:id="@+id/txv_private"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="06dp"
+                    android:layout_marginTop="0dp"
+                    android:paddingRight="10dp"
+                    android:singleLine="false"
+                    android:text="false"
+                    android:textColor="#424242"
+                    android:textSize="14sp"
+                    android:textStyle="normal"
+
+            />
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
