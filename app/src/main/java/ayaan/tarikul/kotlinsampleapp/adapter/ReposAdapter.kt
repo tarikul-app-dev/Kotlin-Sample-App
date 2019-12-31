@@ -28,11 +28,11 @@ class ReposAdapter (private var allReposList: List<ReposDataModel>, private val 
 
 
     class ViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
-        lateinit var txvId: TextView
-        lateinit var txvNodeId: TextView
-        lateinit var txvName: TextView
-        lateinit var txvFullName: TextView
-        lateinit var private: TextView
+         var txvId: TextView
+         var txvNodeId: TextView
+         var txvName: TextView
+         var txvFullName: TextView
+         var private: TextView
 
         init {
             txvId=itemLayoutView.findViewById(R.id.txv_id)

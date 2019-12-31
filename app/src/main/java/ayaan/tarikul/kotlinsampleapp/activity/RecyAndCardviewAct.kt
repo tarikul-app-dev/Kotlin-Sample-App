@@ -1,5 +1,6 @@
 package ayaan.tarikul.kotlinsampleapp.activity
 
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -20,7 +21,7 @@ class RecyAndCardviewAct : AppCompatActivity() {
     var uiContent : UIContent? = null
     var spinDialog:SpinDialog? = null
     lateinit var recyAllRepos: RecyclerView
-    lateinit var adapter:ReposAdapter
+   // lateinit var adapter:ReposAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,9 +33,9 @@ class RecyAndCardviewAct : AppCompatActivity() {
         uiContent = UIContent(this)
         spinDialog = SpinDialog(this)
         recyAllRepos = findViewById(R.id.rcv_all_repos)
-        recyAllRepos.layoutManager = LinearLayoutManager(this, LinearLayout.VERTICAL, false)
-        //setting up the adapter
-        recyAllRepos.adapter= ReposAdapter(allReposList,this)
+
+
+
 
 
         if(uiContent!!.isConnectingToInternet()){
@@ -53,6 +54,7 @@ class RecyAndCardviewAct : AppCompatActivity() {
             override fun onResponse(call: Call<List<ReposDataModel>>?, response: Response<List<ReposDataModel>>?) {
                 spinDialog!!.dismis()
                 allReposList.addAll(response!!.body()!!)
+                setDataToAdapter(allReposList)
                 recyAllRepos.adapter!!.notifyDataSetChanged()
             }
 
@@ -61,6 +63,22 @@ class RecyAndCardviewAct : AppCompatActivity() {
             }
 
         })
+    }
+
+
+    private fun setDataToAdapter(allReposList:ArrayList<ReposDataModel> )
+    {
+        recyAllRepos.apply {
+
+            recyAllRepos.layoutManager = LinearLayoutManager(this@RecyAndCardviewAct, LinearLayout.VERTICAL, false)
+            var adapter = ReposAdapter(allReposList,this@RecyAndCardviewAct)
+            recyAllRepos.adapter = adapter
+
+        }
+
+
+
+
     }
 
 
