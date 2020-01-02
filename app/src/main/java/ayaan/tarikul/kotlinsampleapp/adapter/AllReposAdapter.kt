@@ -9,10 +9,15 @@ import androidx.recyclerview.widget.RecyclerView
 import ayaan.tarikul.kotlinsampleapp.R
 import ayaan.tarikul.kotlinsampleapp.model.ReposDataModel
 
-class ReposAdapter (private var allReposList: List<ReposDataModel>, private val context: Context) : RecyclerView.Adapter<ReposAdapter.ViewHolder>(){
+class AllReposAdapter (private var allReposList: List<ReposDataModel>, private val context: Context) :
+    RecyclerView.Adapter<AllReposAdapter.ViewHolder>(){
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.all_repos_list_item, parent, false))
+        val itemView = LayoutInflater.from(parent?.context).inflate(R.layout.all_repos_list_item, parent, false)
+        return ViewHolder(itemView)
     }
+
     override fun getItemCount(): Int {
         return allReposList.size
     }
@@ -26,21 +31,20 @@ class ReposAdapter (private var allReposList: List<ReposDataModel>, private val 
         holder.private.text= dataModel._private.toString()
     }
 
-
-    class ViewHolder(itemLayoutView: View) : RecyclerView.ViewHolder(itemLayoutView) {
-         var txvId: TextView
-         var txvNodeId: TextView
-         var txvName: TextView
-         var txvFullName: TextView
-         var private: TextView
+    class ViewHolder(row: View) : RecyclerView.ViewHolder(row) {
+        var txvId: TextView
+        var txvNodeId: TextView
+        var txvName: TextView
+        var txvFullName: TextView
+        var private: TextView
 
         init {
-            txvId=itemLayoutView.findViewById(R.id.txv_id)
-            txvNodeId=itemLayoutView.findViewById(R.id.txv_node_id)
-            txvName =itemLayoutView.findViewById(R.id.txv_name)
-            txvFullName =itemLayoutView.findViewById(R.id.txv_full_name)
-            private =itemLayoutView.findViewById(R.id.txv_private)
+            txvId=row.findViewById(R.id.txv_id)
+            txvNodeId=row.findViewById(R.id.txv_node_id)
+            txvName =row.findViewById(R.id.txv_name)
+            txvFullName =row.findViewById(R.id.txv_full_name)
+            private =row.findViewById(R.id.txv_private)
         }
-
     }
 }
+

@@ -23,6 +23,7 @@ class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
     var preferenceHelper : PreferenceHelper? = null;
 
     lateinit var cdRecy : CardView
+    lateinit var cdTabDesign : CardView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +36,7 @@ class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
    fun initViews(){
        cdRecy = findViewById(R.id.cdview_recy_view)
-
+       cdTabDesign = findViewById(R.id.cdview_tab_design)
 
        preferenceHelper = PreferenceHelper(this)
        fab.setOnClickListener { view ->
@@ -53,6 +54,11 @@ class MainAct : AppCompatActivity(), NavigationView.OnNavigationItemSelectedList
 
        cdRecy.setOnClickListener(){
            val intent = Intent(this, RecyAndCardviewAct::class.java)
+           startActivity(intent)
+       }
+
+       cdTabDesign.setOnClickListener(){
+           val intent = Intent(this, TabDesignAct::class.java)
            startActivity(intent)
        }
 

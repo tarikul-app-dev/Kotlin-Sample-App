@@ -73,9 +73,9 @@
 
         <!-- Column 2 -->
         <androidx.cardview.widget.CardView
+                android:id="@+id/cdview_tab_design"
                 android:layout_width="140dp"
                 android:layout_height="170dp"
-
                 android:layout_marginBottom="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -97,7 +97,7 @@
                         android:layout_height="60dp" />
 
                 <TextView
-                        android:text="Me"
+                        android:text="Tab Design"
                         android:textAlignment="center"
                         android:textColor="@android:color/black"
                         android:textSize="18sp"
